@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Proposal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #dynamicButton {
+            position: absolute;
+            background-image: linear-gradient(#bb76f3, #6d0fac);
+            border: 1px solid #bb76f3;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-family: "SF Pro Text","SF Pro Icons","AOS Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            letter-spacing: -.022em;
+            line-height: 1.47059;
+            min-width: 30px;
+            overflow: visible;
+            padding: 4px 12px;
+            text-align: center;
+            white-space: nowrap;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Why no?</h1>
+        <img src="Why no.jpg" alt="cute Cat" width="400" height="500" class="center"/>
+
+        <div class="button-container">
+            <button onclick="location.href='FinalPage.html'" class="button-15">Yes <3</button>
+            <button id="dynamicButton" onclick="handleClick()">No :(</button>
+        </div>
+        
+    </div>
+
+
+
+
+<script>
+    let clickCount = 0;
+    const maxClicks = 3;
+    const initialWidth = 80;  // Initial button width
+    const initialHeight = 40;  // Initial button height
+    const initialFontSize = 17; // Initial font size
+    const sizeReduce = 20;     // Amount to shrink per click
+    const fontReduce = 3;      // Amount to shrink font per click
+    const minWidth = 50;       // Minimum width for readability
+    const minHeight = 25;      // Minimum height
+    const minFontSize = 10;    // Minimum font size
+
+    function handleClick() {
+        clickCount++;
+
+        if (clickCount > maxClicks) {
+            document.getElementById("dynamicButton").style.display = "none";
+            return;
+        }
+
+        // Hide button temporarily
+        let button = document.getElementById("dynamicButton");
+        button.style.display = "none";
+
+        setTimeout(() => {
+            button.style.position = "absolute";
+            // Calculate new width, height, and font size
+            let newWidth = Math.max(initialWidth - (sizeReduce * clickCount), minWidth);
+            let newHeight = Math.max(initialHeight - (sizeReduce * 0.6 * clickCount), minHeight);
+            let newFontSize = Math.max(initialFontSize - (fontReduce * clickCount), minFontSize);
+
+            button.style.width = newWidth + "px";
+            button.style.height = newHeight + "px";
+            button.style.fontSize = newFontSize + "px";
+            button.style.padding = "3px 10px"; // Adjust padding slightly to keep button shape
+
+            // Reposition randomly within viewport
+            button.style.left = Math.random() * (window.innerWidth - newWidth) + "px";
+            button.style.top = Math.random() * (window.innerHeight - newHeight) + "px";
+
+            // Show button again
+            button.style.display = "block";
+        }, 200);
+    }
+</script>
+
+</body>
+</html>
