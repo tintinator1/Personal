@@ -7,10 +7,10 @@ img.center {
 }
 
 /* Special rule for larger iPhone screens like iPhone 16 */
-@media (min-width: 430px) {  /* iPhone 16 Pro Max has a width of ~430px */
+@media (min-width: 600px) {  /* iPhone 16 Pro Max has a width of ~430px */
   img.center {
-      width: 80%;
-      max-width: 600px;
+      width: 90%;
+      max-width: 800px;
   }
 }
 
