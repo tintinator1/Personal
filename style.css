@@ -1,3 +1,25 @@
+img.center {
+  width: 90%;  /* Image takes 90% of the screen width */
+  max-width: 500px;  /* Prevents it from getting too large */
+  height: auto;  /* Maintains aspect ratio */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Special rule for larger iPhone screens like iPhone 16 */
+@media (min-width: 430px) {  /* iPhone 16 Pro Max has a width of ~430px */
+  img.center {
+      width: 80%;
+      max-width: 600px;
+  }
+}
+
+@media (max-width: 430px) {
+  .button-15 {
+      font-size: 16px;
+      padding: 8px 20px; /* Make button easier to tap */
+  }
+}
 .container {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
@@ -9,7 +31,7 @@
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 30px;
     margin-top:15px;
 }
 
