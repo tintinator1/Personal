@@ -14,10 +14,10 @@ img.center {
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 600px) {
   .button-15 {
-      font-size: 16px;
-      padding: 8px 20px; /* Make button easier to tap */
+      font-size: 18px;
+      padding: 12px 24px; /* Make button easier to tap */
   }
 }
 .container {
